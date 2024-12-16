@@ -1,0 +1,21 @@
+CREATE TABLE transaksi_resi (
+no_resi VARCHAR(255) PRIMARY KEY,
+tanggal_resi DATE NOT NULL
+);
+
+CREATE TABLE detail_log (
+id_detail INT AUTO_INCREMENT PRIMARY KEY,
+no_resi VARCHAR(255),
+tanggal DATE NOT NULL,
+kota VARCHAR(255) NOT NULL,
+keterangan TEXT NOT NULL,
+FOREIGN KEY (no_resi) REFERENCES transaksi_resi(no_resi) ON DELETE CASCADE
+);
+
+CREATE TABLE user_admin (
+id_admin INT AUTO_INCREMENT PRIMARY KEY,
+username VARCHAR(255),
+password VARCHAR(255) NOT NULL,
+nama_admin VARCHAR(255) NOT NULL,
+status_aktif BOOLEAN NOT NULL
+);
